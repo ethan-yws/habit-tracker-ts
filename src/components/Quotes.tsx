@@ -25,7 +25,7 @@ const Quote = styled.div`
 const Quotes = () => {
     const [quote, setQuote] = useState<QuoteProp>({
         author: "",
-        quote: "",
+        quote: "Do More",
     });
 
     useEffect(() => {
