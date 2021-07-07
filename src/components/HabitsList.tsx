@@ -18,7 +18,7 @@ interface Habit {
     };
 }
 
-const HabitsList = () => {
+const HabitsList: React.FC = () => {
     const [habits, setHabits] = useState<Habit[]>([]);
     console.log(habits);
 
@@ -40,6 +40,7 @@ const HabitsList = () => {
             {habits.map((habit) => (
                 <SingleHabit
                     key={habit.id}
+                    id={habit.id}
                     title={habit.habit.title}
                     doneCounter={habit.habit.doneCounter}
                 />

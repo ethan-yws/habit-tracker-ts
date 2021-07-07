@@ -8,7 +8,7 @@ const Wrapper = styled.div<{ counter: number }>`
             : props.counter === 1
             ? "yellow"
             : "lightgreen"};
-    border-radius: 0.2em;
+    border-radius: 0.8em;
     width: 300px;
     height: 70px;
     max-width: 500px;
@@ -19,11 +19,13 @@ const Wrapper = styled.div<{ counter: number }>`
 `;
 
 interface HabitProp {
+    id: string;
     title: string;
     doneCounter: number;
 }
 
 const SingleHabit: React.FC<HabitProp> = ({
+    id,
     title,
     doneCounter: completedCounter,
 }) => {
