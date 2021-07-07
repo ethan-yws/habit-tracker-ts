@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div<{ counter: number }>`
-    background-color: ${(props) =>
+const HabitWrapper = styled.div<{ counter: number }>`
+    /* background-color: ${(props) =>
         props.counter === 0
             ? "lightgrey"
             : props.counter === 1
             ? "yellow"
-            : "lightgreen"};
+            : "lightgreen"}; */
+    background: linear-gradient(
+        to right,
+        lightgreen ${(props) => (props.counter / 10) * 100}%,
+        lightgray 0%
+    );
     border-radius: 0.8em;
     width: 300px;
     height: 70px;
-    max-width: 500px;
+    /* max-width: 500px; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,10 +41,10 @@ const SingleHabit: React.FC<HabitProp> = ({
     };
 
     return (
-        <Wrapper counter={doneCounter} onClick={handleClick}>
+        <HabitWrapper counter={doneCounter} onClick={handleClick}>
             <span>{title}</span>
             {doneCounter}
-        </Wrapper>
+        </HabitWrapper>
     );
 };
 
