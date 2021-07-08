@@ -30,7 +30,7 @@ export default function BottomNav() {
             className={classes.root}
         >
             <BottomNavigationAction icon={<SettingsIcon />} />
-            <Link to="addNew">
+            <Link to="/addNew">
                 <BottomNavigationAction icon={<AddIcon />} />
             </Link>
             <BottomNavigationAction icon={<BarChartIcon />} />
