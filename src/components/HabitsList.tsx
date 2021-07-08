@@ -15,6 +15,9 @@ interface Habit {
     habit: {
         title: string;
         doneCounter: number;
+        goalNumber: number;
+        goalPeriod: string;
+        color: string;
     };
 }
 
@@ -43,6 +46,9 @@ const HabitsList: React.FC = () => {
                     id={habit.id}
                     title={habit.habit.title}
                     doneCounter={habit.habit.doneCounter}
+                    goalNumber={habit.habit.goalNumber}
+                    goalPeriod={habit.habit.goalPeriod}
+                    color={habit.habit.color}
                 />
             ))}
         </Wrapper>
