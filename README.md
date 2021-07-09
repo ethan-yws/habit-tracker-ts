@@ -1,10 +1,63 @@
-# Getting Started with Create React App
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+***
+***
+***
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** github_username, repo_name, twitter_handle, email, project_title, project_description
+-->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
 
-In the project directory, you can run:
+  <h3 align="center">Habit Tracker App</h3>
+
+  <p align="center">
+    A Habit Tracker built with React and TypeScript
+    <br />
+    <a href="https://habit-tracker-ts.web.app/">View Demo</a>
+    ·
+    <a href="mailto:ethanshi0725@gmail.com">Report Bug</a>
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+<!-- no need atm -->
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+<p align="center">
+  <img width="400" height="866" src="screenshots/screenshot1.jpeg">
+  <img width="400" height="866" src="screenshots/screenshot2.jpeg">
+</p>
+
+### Built With
+
+-   React
+-   TypeScript
+-   Firebase
+-   styled-components
+-   React-hook-form
+-   React Router
+
+<!-- GETTING STARTED -->
+
+## Getting Started
 
 ### `yarn start`
 
@@ -14,33 +67,37 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Instruction
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Install all the dependencies, run
 
-### `yarn build`
+```
+yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### To serve the application, run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- USAGE EXAMPLES -->
 
-### `yarn eject`
+<!-- ROADMAP -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Roadmap
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Integrate Google Auth to allow user to register account
+-   Settings Page
+-   Statistics Page
+-   Dark mode
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- LICENSE -->
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Distributed under the MIT License. See `LICENSE` for more information.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- ACKNOWLEDGEMENTS -->
