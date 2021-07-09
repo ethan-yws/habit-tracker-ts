@@ -36,6 +36,10 @@ const HabitsList: React.FC = () => {
                     }))
                 );
             });
+
+        return () => {
+            setHabits([]);
+        };
     }, []);
 
     return (
