@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import db from "../firebase";
 
+/* Styles */
 const HabitWrapper = styled.div<{
     counter: number;
     goalNum: number;
@@ -38,6 +40,7 @@ const GoalStatus = styled.span`
     font-weight: 500;
 `;
 
+/* Types */
 interface HabitProp {
     id: string;
     title: string;
@@ -57,8 +60,19 @@ const SingleHabit: React.FC<HabitProp> = ({
 }) => {
     const [doneCounter, setDoneCounter] = useState(completedCounter);
 
+    // Tap to add one more time
     const handleClick = () => {
         setDoneCounter((prev) => prev + 1);
+        db.collection("habits")
+            .doc(id)
+            .set(
+                {
+                    habit: {
+                        doneCounter: doneCounter + 1,
+                    },
+                },
+                { merge: true }
+            );
     };
 
     return (
