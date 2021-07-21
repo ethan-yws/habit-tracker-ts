@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1em;
+    overflow: auto;
 `;
 
 interface Habit {

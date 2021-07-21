@@ -10,6 +10,9 @@ const Header = styled.h2`
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
 `;
 
 function App() {

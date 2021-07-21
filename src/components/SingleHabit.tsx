@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import styled from "styled-components";
 import db from "../firebase";
+import { useLongPress, LongPressDetectEvents } from "use-long-press";
+import IconButton from "@material-ui/core/IconButton";
+import RemoveIcon from "@material-ui/icons/Remove";
+import ClearIcon from "@material-ui/icons/Clear";
 
 /* Styles */
+const Wrapper = styled.div<{ ref: any }>`
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1em;
+    margin-right: 1em;
+`;
+
 const HabitWrapper = styled.div<{
     counter: number;
     goalNum: number;
@@ -15,7 +26,7 @@ const HabitWrapper = styled.div<{
         lightgray 0%
     );
     border-radius: 0.8em;
-    width: 300px;
+    width: 275px;
     height: 70px;
     /* max-width: 500px; */
     display: flex;
@@ -75,23 +86,48 @@ const SingleHabit: React.FC<HabitProp> = ({
             );
     };
 
+    /*--------  Long Press Logic ---------*/
+    const elRef = useRef<HTMLDivElement>();
+    const callback = useCallback(() => {
+        const divEl = elRef.current;
+    }, []);
+    const bind = useLongPress(callback, {
+        onStart: () => console.log("Press started"),
+        onFinish: () => console.log("Long press finished"),
+        onCancel: () => console.log("Press cancelled"),
+        //onMove: () => console.log("Detected mouse or touch movement"),
+        threshold: 500,
+        captureEvent: true,
+        cancelOnMovement: false,
+        detect: LongPressDetectEvents.BOTH,
+    });
+
     return (
-        <HabitWrapper
-            counter={doneCounter}
-            goalNum={goalNumber}
-            color={color}
-            onClick={handleClick}
-        >
-            <div>
-                <HabitName>{title}</HabitName>
-                <br />
-                <br />
-                <GoalStatus>
-                    {goalPeriod}: {doneCounter} / {goalNumber}
-                </GoalStatus>
-            </div>
-            <DoneCounter>{doneCounter}</DoneCounter>
-        </HabitWrapper>
+        <Wrapper ref={elRef}>
+            <IconButton>
+                <RemoveIcon />
+            </IconButton>
+            <HabitWrapper
+                {...bind}
+                counter={doneCounter}
+                goalNum={goalNumber}
+                color={color}
+                onClick={handleClick}
+            >
+                <div>
+                    <HabitName>{title}</HabitName>
+                    <br />
+                    <br />
+                    <GoalStatus>
+                        {goalPeriod}: {doneCounter} / {goalNumber}
+                    </GoalStatus>
+                </div>
+                <DoneCounter>{doneCounter}</DoneCounter>
+            </HabitWrapper>
+            <IconButton>
+                <ClearIcon />
+            </IconButton>
+        </Wrapper>
     );
 };
 

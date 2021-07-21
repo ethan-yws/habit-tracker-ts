@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
     root: {
         width: "100vw",
-        position: "fixed",
+        position: "sticky",
         bottom: 0,
         borderTop: "1px solid lightgray",
         paddingBottom: "0.25em",
