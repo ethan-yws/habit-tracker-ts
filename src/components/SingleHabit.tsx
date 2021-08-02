@@ -1,17 +1,26 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import db from "../firebase";
-import { useLongPress, LongPressDetectEvents } from "use-long-press";
+// import { useLongPress, LongPressDetectEvents } from "use-long-press";
 import IconButton from "@material-ui/core/IconButton";
 import RemoveIcon from "@material-ui/icons/Remove";
 import ClearIcon from "@material-ui/icons/Clear";
 
 /* Styles */
-const Wrapper = styled.div<{ ref: any }>`
+const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin-left: 1em;
     margin-right: 1em;
+    .item-ops {
+        display: none;
+    }
+
+    &:hover {
+        .item-ops {
+            display: block;
+        }
+    }
 `;
 
 const HabitWrapper = styled.div<{
@@ -86,29 +95,48 @@ const SingleHabit: React.FC<HabitProp> = ({
             );
     };
 
-    /*--------  Long Press Logic ---------*/
-    const elRef = useRef<HTMLDivElement>();
-    const callback = useCallback(() => {
-        const divEl = elRef.current;
-    }, []);
-    const bind = useLongPress(callback, {
-        onStart: () => console.log("Press started"),
-        onFinish: () => console.log("Long press finished"),
-        onCancel: () => console.log("Press cancelled"),
-        //onMove: () => console.log("Detected mouse or touch movement"),
-        threshold: 500,
-        captureEvent: true,
-        cancelOnMovement: false,
-        detect: LongPressDetectEvents.BOTH,
-    });
+    const handleReduce = () => {
+        setDoneCounter((prev) => prev - 1);
+        db.collection("habits")
+            .doc(id)
+            .set(
+                {
+                    habit: {
+                        doneCounter: doneCounter - 1,
+                    },
+                },
+                { merge: true }
+            );
+    };
+
+    const handleDelete = () => {
+        db.collection("habits").doc(id).delete();
+    };
+
+    // /*--------  Long Press Logic ---------*/
+    // const elRef = useRef<HTMLDivElement>();
+    // const callback = useCallback(() => {
+    //     const divEl = elRef.current;
+    // }, []);
+    // const bind = useLongPress(callback, {
+    //     onStart: () => console.log("Press started"),
+    //     onFinish: () => console.log("Long press finished"),
+    //     onCancel: () => console.log("Press cancelled"),
+    //     //onMove: () => console.log("Detected mouse or touch movement"),
+    //     threshold: 500,
+    //     captureEvent: true,
+    //     cancelOnMovement: false,
+    //     detect: LongPressDetectEvents.BOTH,
+    // });
+
+    // const elRef = useRef<HTMLDivElement>();
 
     return (
-        <Wrapper ref={elRef}>
-            <IconButton>
+        <Wrapper>
+            <IconButton className="item-ops" onClick={handleReduce}>
                 <RemoveIcon />
             </IconButton>
             <HabitWrapper
-                {...bind}
                 counter={doneCounter}
                 goalNum={goalNumber}
                 color={color}
@@ -124,7 +152,7 @@ const SingleHabit: React.FC<HabitProp> = ({
                 </div>
                 <DoneCounter>{doneCounter}</DoneCounter>
             </HabitWrapper>
-            <IconButton>
+            <IconButton className="item-ops" onClick={handleDelete}>
                 <ClearIcon />
             </IconButton>
         </Wrapper>

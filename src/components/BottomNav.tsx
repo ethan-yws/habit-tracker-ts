@@ -11,8 +11,9 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
     root: {
         width: "100vw",
-        position: "sticky",
+        position: "fixed",
         bottom: 0,
+        overflow: "hidden",
         borderTop: "1px solid lightgray",
         paddingBottom: "0.25em",
         paddingTop: "0.25em",

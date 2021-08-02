@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     align-items: center;
     gap: 1em;
     overflow: auto;
+    height: 65vh;
 `;
 
 interface Habit {

@@ -25,7 +25,7 @@ const Quote = styled.div`
 const Quotes: React.FC = () => {
     const [quote, setQuote] = useState<QuoteProp>({
         author: "",
-        quote: "Hold infinity in the palm of your hand. And eternity in an hour.",
+        quote: "Have a lovely day!",
     });
 
     useEffect(() => {
