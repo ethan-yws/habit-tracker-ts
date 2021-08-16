@@ -5,6 +5,7 @@ import BottomNav from "./components/BottomNav";
 import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AddNew from "./components/AddNew";
+import LoginPage from "./components/LoginPage";
 
 const Header = styled.h2`
     letter-spacing: 0.1em;
@@ -30,6 +31,7 @@ function App() {
 
                     {/* Register new habit Page */}
                     <Route exact path="/addNew" component={AddNew} />
+                    <Route exact path="/login" component={LoginPage} />
                 </Switch>
             </div>
         </Router>
