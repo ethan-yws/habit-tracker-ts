@@ -26,6 +26,7 @@ const LoginPage = () => {
     return (
         <Wrapper>
             <FormWrapper>
+                <h1>Login</h1>
                 <GoogleButton />
             </FormWrapper>
             <Illusration img={WelcomeArt}></Illusration>
